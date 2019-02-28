@@ -13,6 +13,7 @@ def revnum(num):
     return reverse
 
 def euler004():
+    set = []
     for i in range(999,0,-1):
         for j in range(999,0,-1):
             nominator = i * j
@@ -20,8 +21,9 @@ def euler004():
             remainder = nominator % 1000
 
             if quotient == revnum(remainder):
-                print("result is ",i,j, nominator)
-                return
+                set.append(nominator)
+
+    print(max(set))
 
 euler004()
 
