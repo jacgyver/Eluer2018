@@ -3,22 +3,31 @@
 # Find the sum of all the numbers less than 108 that are both palindromic and can be written as the sum of consecutive squares.
 
 
+from CommonLib import isParlindrom
 import time
-
-#123
-def Reverse(num):
-    res = 0
-    while(num>10):
-        rem = num % 10
-        res = res*10 + rem
-        num = num // 10
-
-def isPalindrom(num):
-
-    return False
+import math
 
 
 def euler125():
     stime = time.time()
 
+    Start = 961
+    for i in range(Start,0,-1):
+        SqrtNum = round(math.sqrt(i))
+        temp = 0
+
+        while(SqrtNum>0):
+            temp = temp + SqrtNum*SqrtNum
+            if i == temp:
+                print (SqrtNum)
+                return i
+            if i < temp:
+                break
+
+            SqrtNum-=-1
+
+
     print(str(time.time() - stime))
+
+
+print (euler125())
