@@ -4,6 +4,8 @@
 # 2. Divide two part, 몫과 나머지
 # 3. Find Parlindromic number
 
+# This coding has a problem in revnum function, only 3-digits numbers work welll.
+
 def revnum(num):
     reverse = 0
     while(num>0):
