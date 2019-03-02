@@ -11,23 +11,34 @@ import math
 def euler125():
     stime = time.time()
 
-    Start = 961
-    for i in range(Start,0,-1):
-        SqrtNum = round(math.sqrt(i))
-        temp = 0
+    resultSet = []
+    # 2중 for loop으로 주어진 숫자의 제곱의 합들을 구한다.
+    # 주어진 숫자는 자신의 거듭제곱근의 숫자의 제곱보다 클 수 없다.
+    for p in range(100000000,0,-1):
+        SqrtNum = round(math.sqrt(p)) + 1
+        tempsrt = str(p) + " = "
+        for i in range(1, SqrtNum):
+            total = 0
+            tempsrt = ""
 
-        while(SqrtNum>0):
-            temp = temp + SqrtNum*SqrtNum
-            if i == temp:
-                print (SqrtNum)
-                return i
-            if i < temp:
+            for j in range(1, i):
+                total = total + j*j
+                tempsrt = tempsrt + str(j) + " + "
+                if total > p :
+                    tempsrt = ""
+                    #print(tempsrt)
+                    break
+
+            if  p == total:
+                print(tempsrt)
+                resultSet.append(p)
                 break
 
-            SqrtNum-=-1
+        print(p, str(time.time() - stime))
+        stime = time.time()
+
+    print(resultSet,'>>>>',sum(resultSet))
 
 
-    print(str(time.time() - stime))
 
-
-print (euler125())
+euler125()
