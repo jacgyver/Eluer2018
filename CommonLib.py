@@ -16,3 +16,8 @@ def isParlindrom(num):
 
     return False
 
+import sympy
+def isPrime(num):
+    return sympy.isprime(num)
+
+

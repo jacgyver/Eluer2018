@@ -18,8 +18,10 @@ def prime_factor(num):
             if (num % i == 0):
                 factor_list.append(i)
                 print(factor_list)
-
+import time
 def get_primes(n):
+    stime = time.time()
+
     numbers = set(range(n, 1, -1))
     primes = []
     while numbers:
@@ -28,7 +30,10 @@ def get_primes(n):
         numbers.difference_update(set(range(p*2, n+1, p)))
     return primes
 
-get_primes(13195)
+    print( time.time()-stime)
+
+
+prime_factor(600851475143)
 #prime_factor(600851475143)
 
 
